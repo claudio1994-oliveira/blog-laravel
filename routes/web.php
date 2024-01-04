@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome');
+Route::get('/', function (){
+    $posts = \App\Models\Post::all();
+    return view('welcome', compact('posts'));
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
