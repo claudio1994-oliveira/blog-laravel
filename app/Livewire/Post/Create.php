@@ -3,27 +3,19 @@
 namespace App\Livewire\Post;
 
 use App\Models\Post;
-use Livewire\Component;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
+use Illuminate\View\View;
 
-class Create extends Component
+class Create extends PostBase
 {
-    public array $fields = [];
 
-    protected array $rules = [
-        'fields.title' => 'required',
-        'fields.body' => 'required'
-    ];
-
-    protected array $messages = [
-        'fields.*' => 'The field is required.'
-    ];
-
-    public function render()
+    public function render(): View
     {
         return view('livewire.post.create');
     }
 
-    public function store()
+    public function store(): RedirectResponse|Redirector
     {
         $this->validate();
 

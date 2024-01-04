@@ -3,18 +3,18 @@
 namespace App\Livewire\Post;
 
 use App\Models\Post;
-use Livewire\Component;
+use Illuminate\View\View;
 
-class Edit extends Component
+class Edit extends PostBase
 {
     public Post $post;
-    public array $fields = [];
 
-    public function mount()
+    public function mount(): void
     {
         $this->fields = $this->post->toArray();
     }
-    public function render()
+    
+    public function render(): View
     {
         return view('livewire.post.edit');
     }
