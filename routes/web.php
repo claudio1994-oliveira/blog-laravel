@@ -19,6 +19,10 @@ Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+Route::prefix('posts')->name('posts.')->group(function () {
+    Route::get('/create', \App\Livewire\Post\Create::class)->name('create');
+})->middleware(['auth']);
+
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
