@@ -21,6 +21,7 @@ Route::view('dashboard', 'dashboard')
 
 Route::prefix('posts')->name('posts.')->group(function () {
     Route::get('/create', \App\Livewire\Post\Create::class)->name('create');
+    Route::get('/{post}/edit', \App\Livewire\Post\Edit::class)->name('edit');
     Route::delete('/{post}', \App\Http\Controllers\DeletePostController::class)->name('destroy');
 })->middleware(['auth']);
 
