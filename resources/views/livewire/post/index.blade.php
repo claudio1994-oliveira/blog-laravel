@@ -26,7 +26,8 @@
                                </svg>
                             </button>
 
-                           <form action="" method="POST" onsubmit="return confirm('are you sure?')">
+                           <form action="{{route('posts.destroy', $post)}}" method="POST" onsubmit="return confirm('are you sure?')">
+                                @csrf
                                 @method('DELETE')
                                <button type="submit">
                                    <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
